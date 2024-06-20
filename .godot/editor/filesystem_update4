@@ -4,3 +4,6 @@ res://Scenes/health_pickup.tscn
 res://Script/CharacterBody2D.gd
 res://Scenes/health_pickup.gd
 res://Global.gd
+res://Scenes/Game_Over.gd
+res://game_over.tscn
+res://Script/Global.gd

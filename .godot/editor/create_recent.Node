@@ -1,8 +1,10 @@
-Timer
-Node
+CanvasModulate
 Sprite2D
+Container
+RichTextLabel
+Node
+Timer
 CollisionShape2D
 Area2D
-RichTextLabel
 AnimatedSprite2D
 CharacterBody2D

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dcnorrjjggjdb"]
 
 [ext_resource type="PackedScene" uid="uid://urjeevgblpm" path="res://Scenes/Player.tscn" id="1_q07vk"]
-[ext_resource type="Script" path="res://Scenes/health_pickup_generator.gd" id="2_4cdhg"]
+[ext_resource type="Script" path="res://Script/health_pickup_generator.gd" id="2_x3yva"]
 
 [node name="World" type="Node2D"]
 
@@ -16,7 +16,7 @@ scroll_active = false
 autowrap_mode = 0
 
 [node name="health_pickup_generator" type="Node" parent="."]
-script = ExtResource("2_4cdhg")
+script = ExtResource("2_x3yva")
 
 [node name="Timer_for_health_pick_gen" type="Timer" parent="health_pickup_generator"]
 wait_time = 1.5

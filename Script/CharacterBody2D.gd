@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 const SPEED = 500.0
 var health_display = str("Health: ")
+@onready var game_over_screen = preload("res://game_over.tscn")
+@onready var world = $".."
 
 #-------------------------------------------------------------------------------- movement
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -23,15 +25,25 @@ func _physics_process(_delta):
 	else:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 	
-	
-	velocity = velocity.normalized() * SPEED
-	move_and_slide()
+	if Global.player_life_state == true:
+		velocity = velocity.normalized() * SPEED
+		move_and_slide()
 	
 	#--------------------------------------------------- movement
+
+func _process(delta):
+	if Global.health < 0:
+		Global.player_life_state = false
+	
+	if Global.player_life_state == false:
+		print("dead")
+		var game_restart = game_over_screen.instantiate()
+		var total = get_viewport().size
+		total = total / 2
+		$".".position = total
+		add_child(game_restart)
 	
 	$ProgressBar.value = Global.health
-	if Global.health < 0:
-		print("dead")
 	Global.health = clamp(Global.health, 0, 100)
 
 func _ready():
@@ -42,3 +54,10 @@ func _on_timer_timeout():
 	$Timer.start()
 	health_display = str("Health: ") + str(Global.health)
 	$"../RichTextLabel".text = health_display 
+
+func _input(event):
+		if event.is_action_pressed("R"):
+			Global.player_life_state = true
+			print("restart")
+			get_tree().reload_current_scene()
+			Global.health = 100
