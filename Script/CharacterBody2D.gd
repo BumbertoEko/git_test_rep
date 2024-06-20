@@ -30,11 +30,9 @@ func _physics_process(_delta):
 	#--------------------------------------------------- movement
 	
 	$ProgressBar.value = Global.health
-	
 	if Global.health < 0:
 		print("dead")
-	
-	clamp(Global.health, 0, 100) # doesnt work
+	Global.health = clamp(Global.health, 0, 100)
 
 func _ready():
 	$"../RichTextLabel".text = health_display
