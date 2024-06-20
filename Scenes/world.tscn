@@ -6,3 +6,10 @@
 
 [node name="Player" parent="." instance=ExtResource("1_q07vk")]
 position = Vector2(498, 296)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_right = 79.0
+offset_bottom = 25.0
+text = "Health: 95.5"
+scroll_active = false
+autowrap_mode = 0

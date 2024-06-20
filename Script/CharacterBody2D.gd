@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 const SPEED = 500.0
 var health = 100.0
+var health_display = str("Health: ")
 
 #-------------------------------------------------------------------------------- movement
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -34,6 +35,11 @@ func _physics_process(_delta):
 	if health < 0:
 		print("dead")
 
+func _ready():
+	$"../RichTextLabel".text = health_display
+
 func _on_timer_timeout():
 	health = health - 0.5
 	$Timer.start()
+	health_display = str("Health: ") + str(health)
+	$"../RichTextLabel".text = health_display 
