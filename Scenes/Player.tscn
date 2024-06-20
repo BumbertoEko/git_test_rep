@@ -27,4 +27,7 @@ show_percentage = false
 wait_time = 0.1
 autostart = true
 
+[node name="for_particl" type="Timer" parent="."]
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="for_particl" to="." method="_on_for_particl_timeout"]

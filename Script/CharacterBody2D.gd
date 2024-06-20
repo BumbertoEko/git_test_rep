@@ -4,6 +4,7 @@ const SPEED = 500.0
 var health_display = str("Health: ")
 @onready var game_over_screen = preload("res://game_over.tscn")
 @onready var world = $".."
+@onready var cpu_particles_2d = preload("res://health_pickup_particles.tscn")
 
 #-------------------------------------------------------------------------------- movement
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -32,6 +33,13 @@ func _physics_process(_delta):
 	#--------------------------------------------------- movement
 
 func _process(delta):
+	
+	if Global.got_health == true:
+		var cpu_inst = cpu_particles_2d.instantiate()
+		add_child(cpu_inst) 
+		print("shot")
+	Global.got_health = false
+	
 	if Global.health < 0:
 		Global.player_life_state = false
 	
@@ -61,3 +69,8 @@ func _input(event):
 			print("restart")
 			get_tree().reload_current_scene()
 			Global.health = 100
+
+
+func _on_for_particl_timeout():
+	var cpu_inst = cpu_particles_2d.instantiate()
+	remove_child(cpu_inst)

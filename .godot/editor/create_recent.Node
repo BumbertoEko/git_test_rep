@@ -1,9 +1,10 @@
-CanvasModulate
-Sprite2D
-Container
-RichTextLabel
-Node
 Timer
+Sprite2D
+RichTextLabel
+CPUParticles2D
+CanvasModulate
+Container
+Node
 CollisionShape2D
 Area2D
 AnimatedSprite2D
