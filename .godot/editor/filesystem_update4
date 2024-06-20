@@ -1,3 +1,7 @@
 res://Scenes/world.tscn
 res://Scenes/Player.tscn
 res://Script/CharacterBody2D.gd
+res://Scenes/health_pickup.tscn
+res://Scenes/health_pickup.gd
+res://Global.gd
+res://Scenes/health_pickup_generator.gd

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dcnorrjjggjdb"]
+[gd_scene load_steps=3 format=3 uid="uid://dcnorrjjggjdb"]
 
 [ext_resource type="PackedScene" uid="uid://urjeevgblpm" path="res://Scenes/Player.tscn" id="1_q07vk"]
+[ext_resource type="Script" path="res://Scenes/health_pickup_generator.gd" id="2_4cdhg"]
 
 [node name="World" type="Node2D"]
 
@@ -8,8 +9,17 @@
 position = Vector2(498, 296)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_right = 79.0
+offset_right = 94.0
 offset_bottom = 25.0
 text = "Health: 95.5"
 scroll_active = false
 autowrap_mode = 0
+
+[node name="health_pickup_generator" type="Node" parent="."]
+script = ExtResource("2_4cdhg")
+
+[node name="Timer_for_health_pick_gen" type="Timer" parent="health_pickup_generator"]
+wait_time = 1.5
+autostart = true
+
+[connection signal="timeout" from="health_pickup_generator/Timer_for_health_pick_gen" to="health_pickup_generator" method="_on_timer_for_health_pick_gen_timeout"]

@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
 const SPEED = 500.0
-var health = 100.0
 var health_display = str("Health: ")
 
 #-------------------------------------------------------------------------------- movement
@@ -30,16 +29,18 @@ func _physics_process(_delta):
 	
 	#--------------------------------------------------- movement
 	
-	$ProgressBar.value = health
+	$ProgressBar.value = Global.health
 	
-	if health < 0:
+	if Global.health < 0:
 		print("dead")
+	
+	clamp(Global.health, 0, 100) # doesnt work
 
 func _ready():
 	$"../RichTextLabel".text = health_display
 
 func _on_timer_timeout():
-	health = health - 0.5
+	Global.health = Global.health - 1
 	$Timer.start()
-	health_display = str("Health: ") + str(health)
+	health_display = str("Health: ") + str(Global.health)
 	$"../RichTextLabel".text = health_display 
