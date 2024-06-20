@@ -8,12 +8,18 @@
 [node name="Player" parent="." instance=ExtResource("1_q07vk")]
 position = Vector2(498, 296)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_right = 94.0
-offset_bottom = 25.0
+[node name="RichTextLabel" type="RichTextLabel" parent="Player"]
+offset_left = -44.0
+offset_top = 70.0
+offset_right = 50.0
+offset_bottom = 95.0
 text = "Health: 95.5"
 scroll_active = false
 autowrap_mode = 0
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
 
 [node name="health_pickup_generator" type="Node" parent="."]
 script = ExtResource("2_x3yva")

@@ -47,21 +47,22 @@ func _process(delta):
 		print("dead")
 		var game_restart = game_over_screen.instantiate()
 		var total = get_viewport().size
-		total = total / 2
+		total = total / 64
 		$".".position = total
+		$Camera2D.position = total
 		add_child(game_restart)
 	
 	$ProgressBar.value = Global.health
 	Global.health = clamp(Global.health, 0, 100)
 
 func _ready():
-	$"../RichTextLabel".text = health_display
+	$RichTextLabel.text = health_display
 
 func _on_timer_timeout():
 	Global.health = Global.health - 1
 	$Timer.start()
 	health_display = str("Health: ") + str(Global.health)
-	$"../RichTextLabel".text = health_display 
+	$RichTextLabel.text = health_display 
 
 func _input(event):
 		if event.is_action_pressed("R"):
