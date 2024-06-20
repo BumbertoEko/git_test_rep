@@ -7,3 +7,4 @@ res://Global.gd
 res://Scenes/Game_Over.gd
 res://game_over.tscn
 res://Script/Global.gd
+res://Script/health_pickup.gd
