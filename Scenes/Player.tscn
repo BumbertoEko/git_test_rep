@@ -14,11 +14,3 @@ shape = SubResource("RectangleShape2D_2u845")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_55t2p")
-
-[node name="ProgressBar" type="ProgressBar" parent="."]
-offset_left = -121.0
-offset_top = -107.0
-offset_right = 121.0
-offset_bottom = -80.0
-value = 100.0
-show_percentage = false
