@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 const SPEED = 500.0
+var health = 100.0
 
 #-------------------------------------------------------------------------------- movement
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -27,3 +28,12 @@ func _physics_process(_delta):
 	move_and_slide()
 	
 	#--------------------------------------------------- movement
+	
+	$ProgressBar.value = health
+	
+	if health < 0:
+		print("dead")
+
+func _on_timer_timeout():
+	health = health - 0.5
+	$Timer.start()

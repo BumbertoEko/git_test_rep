@@ -1,4 +1,3 @@
 res://Scenes/world.tscn
-res://CharacterBody2D.gd
-res://Player.tscn
 res://Scenes/Player.tscn
+res://Script/CharacterBody2D.gd
